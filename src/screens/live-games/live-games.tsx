@@ -6,17 +6,17 @@ export default function LiveGames() {
   const [image, setImage] = useState();
   useEffect(() => {
     liveGamesService.getTestData().then(response => {
-      setImage(response.message);
+      console.log(response);
     });
   }, []);
   return (
     <View style={{flex: 1, backgroundColor: '#EBECF0'}}>
-      <Image
+      {/* <Image
         style={{height: 500}}
         source={{
           uri: image,
         }}
-      />
+      /> */}
       <Text>GRY NA ŻYWO</Text>
     </View>
   );

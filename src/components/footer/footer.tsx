@@ -22,6 +22,11 @@ export default function Footer() {
   const dispatch = useDispatch();
   const {name} = useScreenRedux();
 
+  const isLiveGamesActive = name === LIVE_GAMES ? 'red' : 'gray';
+  const isHistoryActive = name === HISTORY ? 'red' : 'gray';
+  const isFutureActive = name === FUTURE ? 'red' : 'gray';
+  const isStatsActive = name === STATS ? 'red' : 'gray';
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -30,11 +35,8 @@ export default function Footer() {
           navigation.navigate(LIVE_GAMES);
           dispatch(setScreen(LIVE_GAMES));
         }}>
-        <FontAwesomeIcon
-          icon={faBasketballBall}
-          color={name === LIVE_GAMES ? 'orange' : 'red'}
-        />
-        <Text style={styles.text}>Na żywo</Text>
+        <FontAwesomeIcon icon={faBasketballBall} color={isLiveGamesActive} />
+        <Text style={[styles.text, {color: isLiveGamesActive}]}>Na żywo</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.touchable}
@@ -42,11 +44,10 @@ export default function Footer() {
           navigation.navigate(HISTORY);
           dispatch(setScreen(HISTORY));
         }}>
-        <FontAwesomeIcon
-          icon={faHistory}
-          color={name === HISTORY ? 'orange' : 'red'}
-        />
-        <Text style={styles.text}>Historia meczy</Text>
+        <FontAwesomeIcon icon={faHistory} color={isHistoryActive} />
+        <Text style={[styles.text, {color: isHistoryActive}]}>
+          Historia meczy
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.touchable}
@@ -54,11 +55,10 @@ export default function Footer() {
           navigation.navigate(FUTURE);
           dispatch(setScreen(FUTURE));
         }}>
-        <FontAwesomeIcon
-          icon={faPerson}
-          color={name === FUTURE ? 'orange' : 'red'}
-        />
-        <Text style={styles.text}>Przyszłe mecze</Text>
+        <FontAwesomeIcon icon={faPerson} color={isFutureActive} />
+        <Text style={[styles.text, {color: isFutureActive}]}>
+          Przyszłe mecze
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.touchable}
@@ -66,11 +66,8 @@ export default function Footer() {
           navigation.navigate(STATS);
           dispatch(setScreen(STATS));
         }}>
-        <FontAwesomeIcon
-          icon={faStar}
-          color={name === STATS ? 'orange' : 'red'}
-        />
-        <Text style={styles.text}>Statystyki</Text>
+        <FontAwesomeIcon icon={faStar} color={isStatsActive} />
+        <Text style={[styles.text, {color: isStatsActive}]}>Statystyki</Text>
       </TouchableOpacity>
     </View>
   );
@@ -92,7 +89,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   text: {
-    color: 'red',
     fontWeight: 'bold',
   },
   touchable: {
