@@ -1,13 +1,10 @@
+import {API_KEY, COUNTRY_ID, LEAGUE_KEY} from '../constants/server';
 import axios from '../utils/axios';
 
-const apiKey =
-  'c812db3d2fc30b5d7b70ca334ffc9ecbdc70003a83cde9071836cbbe81e61c5e';
-const countryID = '190'; //germany
-const leagueKey = '757'; // bundesliga
-class LiveGamesService {
+class StatsService {
   getTeams(): Promise<any> {
     return axios
-      .get(`?met=Standings&APIkey=${apiKey}&leagueId=${leagueKey}`)
+      .get(`?met=Standings&APIkey=${API_KEY}&leagueId=${LEAGUE_KEY}`)
       .then(response => {
         return Promise.resolve<any>(response.data.result);
       })
@@ -16,9 +13,10 @@ class LiveGamesService {
         console.log(err);
       });
   }
+
   getLeague(): Promise<any> {
     return axios
-      .get(`?met=Leagues&APIkey=${apiKey}&countryId=${countryID}`)
+      .get(`?met=Leagues&APIkey=${API_KEY}&countryId=${COUNTRY_ID}`)
       .then(response => {
         return Promise.resolve<any>(response.data.result);
       })
@@ -27,9 +25,10 @@ class LiveGamesService {
         console.log(err);
       });
   }
+
   getTeamsLogo(): Promise<any> {
     return axios
-      .get(`?met=Teams&APIkey=${apiKey}&leagueId=${leagueKey}`)
+      .get(`?met=Teams&APIkey=${API_KEY}&leagueId=${LEAGUE_KEY}`)
       .then(response => {
         return Promise.resolve<any>(response.data.result);
       })
@@ -40,4 +39,4 @@ class LiveGamesService {
   }
 }
 
-export default new LiveGamesService();
+export default new StatsService();
