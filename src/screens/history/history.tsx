@@ -33,8 +33,8 @@ export default function History() {
         <ActivityIndicator size={'large'} style={styles.loader} />
       ) : (
         <ScrollView style={styles.scrollView}>
-          {historyGames.map(game => (
-            <View style={styles.gameContainer}>
+          {historyGames.map((game, index) => (
+            <View key={index} style={styles.gameContainer}>
               <View style={styles.gameHeader}>
                 <View style={{flexDirection: 'row'}}>
                   <Text style={{color: 'gray'}}>{game.country_name} </Text>

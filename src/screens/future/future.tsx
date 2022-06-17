@@ -15,8 +15,8 @@ export default function Future() {
     <View style={styles.container}>
       <Text style={styles.title}>Przyszłe mecze</Text>
       <ScrollView style={{flex: 1, marginBottom: 60}}>
-        {futureGames.map(game => (
-          <View style={styles.card}>
+        {futureGames.map((game, index) => (
+          <View key={index} style={styles.card}>
             <View style={styles.league}>
               <View style={{flexDirection: 'row'}}>
                 <Text style={{color: 'gray'}}>{game.country_name} </Text>
