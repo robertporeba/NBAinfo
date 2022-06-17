@@ -1,7 +1,8 @@
+import {LIVE_GAMES} from '../../navigation/navigation-types';
 import {IScreenAction, IScreenState, SET_SCREEN} from '../types/screen';
 
 const initialState: IScreenState = {
-  name: null,
+  name: LIVE_GAMES,
 };
 
 export default function screen(

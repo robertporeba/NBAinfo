@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://dog.ceo/api/';
+export const SERVER_URL = 'https://apiv2.allsportsapi.com/basketball/';
