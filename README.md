@@ -4,7 +4,7 @@
 
 ## General info
 
-The application is designed for basketball fans. It allows you to check current league status, future and past games with scores and deatils about teams.
+The application is designed for basketball fans. It allows you to check current league status, and future and past games with scores and details about teams.
 
 ## Technologies
 - React Native
